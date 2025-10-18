@@ -8,7 +8,10 @@ class EmployeeNode:
     '''
 
     # Delete this line and implement the class below
-    pass
+    def __init__(self,name):
+        self.name=name
+        self.left=None
+        self.right=None
 
 class TeamTree:
     '''
@@ -22,15 +25,47 @@ class TeamTree:
     '''
     
     # Delete this line and implement the class below
-    pass
+    def __init__(self):
+        self.root(None)
+    
+    def insert(self,maneger_name,employee_name,side,curent_node=None):
+        if not self.root:
+            print("No team lead found please add one")
+            return
+        if curent_node is None:
+            curent_node=self.root
+        if curent_node.name.lower()==maneger_name.lower():
+            new_employee=EmployeeNode(employee_name)
+            if side == "left":
+                if current_node.left():
+                    print(f"{manager_name}'s report already exists")
+                else:
+                    curent_node.left=new_employee
+                    print(f"{new_employee} has been added to the left of {maneger_name}")
+            elif side=="right":
+                if curent_node.right:
+                    print(f"{manager_name}'s report already exists")
+                else:
+                    curent_node.right=new_employee
+                    print(f"{new_employee} has been added to the right of {maneger_name}")
+            else:
+                print("Invalid side, please choose left or right.")
+        if current_node.left:
+            self.insert(maneger_name,employee_name,side,curent_node.left)
+        if current_node.right:
+            self.insert(maneger_name,employee_name,side,curent_node.right)
 
-# Test your code here
-
-
-
-
-
-
+    def print_tree(self,node=None,level=0):
+        if not self.root:
+            print("No team members to display")
+            return
+        if node is None:
+            node=self.root
+        if node.right:
+            self.print_tree(node.right,level+1)
+        print("   "* level+ f"{node.name}")
+        if node.left:
+            self.print_tree(node.left,level+1)
 
 
 
