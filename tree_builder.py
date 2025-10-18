@@ -37,22 +37,22 @@ class TeamTree:
         if curent_node.name.lower()==maneger_name.lower():
             new_employee=EmployeeNode(employee_name)
             if side == "left":
-                if current_node.left():
-                    print(f"{manager_name}'s report already exists")
+                if curent_node.left():
+                    print(f"{maneger_name}'s report already exists")
                 else:
                     curent_node.left=new_employee
                     print(f"{new_employee} has been added to the left of {maneger_name}")
             elif side=="right":
                 if curent_node.right:
-                    print(f"{manager_name}'s report already exists")
+                    print(f"{maneger_name}'s report already exists")
                 else:
                     curent_node.right=new_employee
                     print(f"{new_employee} has been added to the right of {maneger_name}")
             else:
                 print("Invalid side, please choose left or right.")
-        if current_node.left:
+        if curent_node.left:
             self.insert(maneger_name,employee_name,side,curent_node.left)
-        if current_node.right:
+        if curent_node.right:
             self.insert(maneger_name,employee_name,side,curent_node.right)
 
     def print_tree(self,node=None,level=0):
