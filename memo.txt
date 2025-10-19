@@ -1,0 +1,10 @@
+This project emphasizes a hierarchy system within a companies structure.
+The EmployeeNode class models each Employee as a node which comes with 
+their name and two direct reporters. The TeamTree class manages this 
+hierarchy letting new employees be put under exsisting managers. I chose
+a binary tree since I could implement a recursion to traverse the tree 
+properly. This also means I can get good flecability and scailing as the
+organization grows. The print_tree function also uses recursion showing 
+the trees structure and readability. This approach avoids flat data 
+structures like dictionaries which would be hard to enforce a parent 
+child relationship. 
